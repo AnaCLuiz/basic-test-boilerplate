@@ -1,0 +1,486 @@
+@import '../../abstracts/variables';
+@import '../../abstracts/mixins';
+
+.hero {
+    width: 100%;
+    position: relative;
+    background-color: $tertiary-color;
+
+    @include small-screen {
+        height: 100vh;
+    }
+
+    &__logo {
+        width: 160px;
+
+        @include medium-screen {
+            width: 90px;
+        }
+
+        @include extra-large-screen {
+            width: 210px;
+        }
+    }
+
+    &__infos {
+        z-index: 3;
+        padding: 40px 0;
+        grid-column: 2;
+    }
+
+    &__text {
+        color: #FFF;
+        margin: 40px 0 16px;
+
+        @include small-screen {
+            font-size: 40px;
+        }
+
+        @include medium-screen {
+            font-size: 24px;
+            margin: 16px 0;
+        }
+
+        @include large-screen {
+            font-size: 40px;
+        }
+
+        @include extra-large-screen {
+            font-size: 70px;
+        }
+    }
+    
+    &__arrow-down {
+        cursor: pointer;
+
+        @include medium-screen {
+            width: 20px;
+        }
+    }
+
+    &__background {
+        &-mobile {
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            image-rendering: -webkit-optimize-contrast;
+
+            @include small-screen {
+                display: block;
+            }
+    
+            @include mediumOrLargerScreen {
+                display: none;
+            }
+    
+            &-leaves-img, &-plantperson-img {
+                width: 100%;
+                position: absolute;
+            }
+    
+            &-leaves-img {
+                z-index: 2;
+            }
+    
+            &-plantperson-img {
+                left: 0;
+                bottom: 0;
+                z-index: 1;
+                width: 100%;
+                padding: 40px 24px;
+                position: absolute;
+            }
+        }
+
+        &-desktop {
+            width: 100%;
+            height: 100%;
+
+            @include small-screen {
+                display: none;
+            }
+    
+            @include mediumOrLargerScreen {
+                display: block;
+            }
+
+            &-left-leaves-img, &-right-leaves-img, &-plantperson-img {
+                max-height: 100%;
+                position: absolute;
+            }
+
+            &-left-leaves-img {
+                left: 0;
+                z-index: 2;
+            }
+
+            &-right-leaves-img {
+                right: 0;
+                z-index: 2;
+            }
+
+            &-plantperson-img {
+                z-index: 1;
+                right: 20%;
+                padding: 24px 0;
+            }
+        }
+    }
+}
+
+.filter {
+    background-color: $background-white;
+
+    .content {
+        display: grid;
+        align-items: center;
+        
+        @include smallOrMediumScreen {
+            grid-gap: 60px;
+            padding: 16px 0 40px;
+            grid-template-areas: "item" "item" "item";
+        }
+        
+        @include largeOrExtraScreen {
+            grid-gap: 100px;
+            padding: 50px 0 50px;
+            grid-template-areas: "item item item";
+        }
+    }
+
+    &__type {
+        display: grid;
+        row-gap: 8px;
+        grid-template-rows: 75px 60px 40px;
+
+        &-sun-icon, &-dog-icon, &-wateringcan-icon {
+            image-rendering: -webkit-optimize-contrast;
+        }
+        
+        &-sun-icon {
+            width: 75px;
+        }
+
+        &-wateringcan-icon {
+            height: 75px;
+            transform: rotateY(180deg);
+        }
+        
+        &-dog-icon {
+            width: 75px;
+        }
+
+        &-text {
+            font-size: 14px;
+            margin: 8px 0 24px;
+            color: $secondary-font-color;
+        }
+
+        &-number {
+            margin-right: 4px;
+        }
+
+        &-selector {
+            border-radius: 20px;
+            width: 100%;
+            height: 40px;
+            font-size: 14px;
+            padding: 0 16px;
+            appearance: none;
+            cursor: pointer;
+            color: $primary-font-color;
+            border: 1px solid $primary-font-color;
+            background-repeat: no-repeat;
+            background-position-y: center;
+            background-position-x: calc(100% - 16px);
+            background-image: url('assets/images/icons/select_arrow-down.svg');
+            
+            &:focus-visible {
+                border: 1px solid $primary-color;
+            }
+        }
+    }
+}
+
+.results {
+    .no-results {
+        padding: 60px 0;
+        display: flex;
+        
+        &__message {
+            max-width: 400px;
+        }
+
+        &__title {
+            font-size: 40px;
+            margin: 0 0 16px 0;
+        }
+    
+        &__text {
+            font-size: 16px;
+
+            @include large-screen {
+                max-width: 240px;
+            }
+            
+            @include extra-large-screen {
+                max-width: 240px;
+            }
+        }
+        
+        &__title, &__text {
+            color: $tertiary-font-color;
+        }
+
+    
+        &__image {
+            width: 100px;
+            margin-top: 40px;
+            
+            @include smallOrMediumScreen {
+                align-self: center;
+            }
+
+            @include largeOrExtraScreen {
+                margin: 0 150px 0 0;
+            }
+        }
+
+        @include smallOrMediumScreen {
+            flex-direction: column;
+        }
+
+        @include largeOrExtraScreen {
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .response {
+        padding: 40px 0;
+
+        &__image {
+            max-width: 160px;
+        }
+
+        &__title {
+            font-size: 40px;
+            margin: 16px 0;
+        }
+
+        &__plants-wrapper {
+            gap: 24px;
+            width: 100%;
+            
+            @include small-screen {
+                display: flex;
+                overflow-x: auto;
+                overflow-y: hidden;
+                margin: 48px 0 24px;
+                padding-bottom: 24px;
+            }
+        
+            @include mediumOrLargerScreen {
+                display: grid;
+                margin: 48px 0;
+                grid-template-areas: 
+                "highlighted highlighted plant plant"
+                "highlighted highlighted plant plant"
+                "auto-fill auto-fill auto-fill auto-fill";
+            }
+
+            .plant {
+                width: 100%;
+                height: 100%;
+                min-width: 100%;
+                max-height: 100%;
+                padding: 24px;
+                border-radius: 5px;
+                aspect-ratio: 3 / 4;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-color: $background-white;
+
+                &.highlighted {
+                    .plant {
+                        &-name {
+                            line-height: 1.4;
+                        }
+
+                        @include smallOrMediumScreen {
+                            &-infos {
+                                flex-direction: column;
+                                justify-content: flex-end;
+                            }
+    
+                            &-details {
+                                align-items: center;
+                                flex-direction: row;
+                            }
+
+                            &-name {
+                                margin: 0 0 8px;
+                            }
+
+                            &-icon {
+                                height: 20px;
+                            }
+                        }
+
+                        @include largeOrExtraScreen {
+                            &-infos {
+                                flex-direction: row;
+                                justify-content: space-between;
+                            }
+    
+                            &-details {
+                                align-items: flex-end;
+                                flex-direction: column;
+                            }
+
+                            &-name {
+                                margin: 0;
+                                max-width: 60%;
+                                font-size: 32px;
+                            }
+                            
+                            &-price {
+                                font-size: 24px;
+                                padding-top: 8px;
+                            }
+
+                            &-icon {
+                                height: 24px;
+                            }
+                        }
+                    }
+                }
+                
+                &:not(.highlighted) {
+                    .plant {
+                        &-infos {
+                            flex-direction: column;
+                            justify-content: flex-end;
+                        }
+
+                        &-name {
+                            margin: 0 0 16px;
+                        }
+
+                        &-details {
+                            align-items: center;
+                            flex-direction: row;
+                        }
+
+                        &-icon {
+                            height: 20px;
+                        }
+                    }
+                }
+
+                &.staff-favorite {
+                    .staff-favorite__badge {
+                        left: 0;
+                        top: 24px;
+                        max-width: 80%;
+                        padding: 8px 16px;
+                        position: absolute;
+                        border-radius: 0 20px 20px 0;
+                        background-color: $tertiary-color;
+                            
+                        &-text {
+                            color: #FFF;
+                            font-size: 16px;
+                            font-weight: 700;
+                            margin-left: 8px;
+                        }
+                    }
+                }
+
+                &:not(.staff-favorite) {
+                    .staff-favorite__badge {
+                        display: none;
+                    }
+                }
+                
+                &-image-container {
+                    width: 100%;
+                    height: 70%;
+                    max-width: 100%;
+                    max-height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    image-rendering: -webkit-optimize-contrast;
+                }
+    
+                &-image {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+
+                &-details {
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+    
+                &-icons {
+                    gap: 8px;
+                    display: flex;
+                }
+    
+                &.highlighted {
+                    @include mediumOrLargerScreen {
+                        grid-area: highlighted;
+                    }
+                }
+                
+                &-infos {
+                    display: flex;
+                    padding-top: 8px;
+                    font-weight: 700;
+                    text-overflow: ellipsis;
+                    color: $green-font-color;
+                }
+    
+                &-name {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;  
+                }
+                
+                &-price {
+                    margin: 0;
+                }
+            }
+        }
+
+    }
+
+    .go-top-btn {
+        width: 100%;
+        padding: 12px 0;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+        background-color: transparent;
+    
+        &__icon {
+            height: 22px;
+            margin-right: 16px;
+        }
+    }
+}

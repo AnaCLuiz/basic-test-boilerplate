@@ -1,0 +1,44 @@
+// Single Breakpoints
+
+@mixin small-screen {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin medium-screen {
+    @media (min-width: 481px) AND (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin large-screen {
+    @media (min-width: 769px) AND (max-width: 1201px) {
+        @content;
+    }
+}
+
+@mixin extra-large-screen {
+    @media (min-width: 1201px) {
+        @content;
+    }
+}
+
+
+// Multiple Breakpoints
+
+@mixin mediumOrLargerScreen {
+    @include medium-screen{ @content };
+    @include large-screen{ @content };
+    @include extra-large-screen{ @content };
+}
+
+@mixin smallOrMediumScreen {
+    @include small-screen{ @content };
+    @include medium-screen{ @content };
+}
+
+@mixin largeOrExtraScreen {
+    @include large-screen{ @content };
+    @include extra-large-screen{ @content };
+}

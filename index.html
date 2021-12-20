@@ -4,14 +4,103 @@
     <title>Front End Test - Greenthumb</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="theme-color" content="#15573F" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#15573F" />
+    <meta name="msapplication-navbutton-color" content="#15573F" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./index.scss" />
   </head>
 
   <body>
-    <img src="images/icons/logo-white.svg" alt="Greenthumb" />
+    <main id="main">
+      <section class="container hero">
+        <div class="hero__infos">
+          <img class="hero__logo" src="assets/images/icons/logo-white.svg" alt="Greenthumb" />
+          <h1 class="hero__text">Find your <br> next green <br> friend</h1>
+          <img class="hero__arrow-down" src="assets/images/icons/arrow-down.svg" alt="Arrow down" />
+        </div>
+
+        <div class="hero__background-mobile">
+          <img class="hero__background-mobile-leaves-img" src="assets/images/hero/mobile/mobile-leaves.png" alt="Leaves image">
+          <img class="hero__background-mobile-plantperson-img" src="assets/images/hero/mobile/mobile-plantperson.png" alt="Plant person image">
+        </div>
+
+        <div class="hero__background-desktop">
+          <img class="hero__background-desktop-left-leaves-img" src="assets/images/hero/desktop/left-leaves.png" alt="Left leaves image">
+          <img class="hero__background-desktop-plantperson-img" src="assets/images/hero/desktop/plantperson.png" alt="Plant person image">
+          <img class="hero__background-desktop-right-leaves-img" src="assets/images/hero/desktop/right-leaves.png" alt="Right leaves image">
+        </div>
+      </section>
+
+      <section class="container filter">
+        <div class="content">
+          <div class="filter__type">
+            <img class="filter__type-sun-icon" src="assets/images/illustrations/sun.png" alt="Sun Emoji">
+            <p class="filter__type-text"><b class="filter__type-number">1.</b>Set the amount of <b>sunlight</b> your plant will get.</p>
+
+            <form>
+              <select class="filter__type-selector" name="sun" id="sun">
+                <option value="" selected disabled>Select...</option>
+                <option class="option" value="no">No</option>
+                <option class="option" value="low">Low</option>
+                <option class="option" value="high">High</option>
+              </select>
+            </form>
+          </div>
+
+          <div class="filter__type">
+            <img class="filter__type-wateringcan-icon" src="assets/images/illustrations/wateringcan.png" alt="Wateringcan Emoji">
+            <p class="filter__type-text"><b class="filter__type-number">2.</b>How often do you want to <b>water</b> your plant?</p>
+
+            <form>
+              <select class="filter__type-selector" name="water" id="water">
+                <option value="" selected disabled>Select...</option>
+                <option class="option" value="regularly">Regularly</option>
+                <option class="option" value="daily">Daily</option>
+                <option class="option" value="rarely">Rarely</option>
+              </select>
+            </form>
+          </div>
+
+          <div class="filter__type">
+            <img class="filter__type-dog-icon" src="assets/images/illustrations/dog.png" alt="Dog Emoji">
+            <p class="filter__type-text"><b class="filter__type-number">3.</b>Do you have pets? Do they <b>chew</b> plants?</p>
+
+            <form>
+              <select class="filter__type-selector" name="pets" id="pets">
+                <option value="" selected disabled>Select...</option>
+                <option class="option" value="true">Yes</option>
+                <option class="option" value="false">No</option>
+              </select>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="container results">
+        <div class="content">
+          <div class="no-results">
+            <div class="no-results__message">
+              <h1 class="no-results__title"></h1>
+              <p class="no-results__text"></p>
+            </div>
+
+            <img class="no-results__image" src="assets/images/illustrations/no-results.png" alt="No results">
+          </div>
+
+          <div class="response">
+            <div>
+              <img class="response__image" src="assets/images/illustrations/pick.png" alt="Pick image">
+              <h1 class="response__title">Our picks for you</h1>
+            </div>
+
+            <div class="response__plants-wrapper"></div>
+
+            <button class="go-top-btn"><img class="go-top-btn__icon" src="assets/images/icons/arrow-up.svg" alt="Arrow up"> back to the top</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </body>
 </html>
